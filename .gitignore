@@ -42,7 +42,8 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-.idea/
+
+/.idea/
 Pipfile
 /media
 /ShirtStyleStudio/.env
