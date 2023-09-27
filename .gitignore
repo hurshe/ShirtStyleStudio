@@ -42,13 +42,13 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+Pipfile
 /media
 /ShirtStyleStudio/.env
 /shop/migrations
 /user/migrations
 /db.sqlite3
-
+.idea
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
