@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="grid-container" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-row-gap: 10px; gap: 30px;">
+    {% for offer in offers %}
+    <a style="text-decoration: none;" href="{{ offer }}">
+    <div class="grid-item" style="background-color: #f0f0f0; padding: 20px; text-align: center; margin: 10px 0;">
+        {% if offer.product.prod_img %}
+        <img class="rounded float-start" style="display: flex; max-width: 200px; margin-right: 10px;" src="{{ offer.product.prod_img.url }}" alt="Product photo">
+        {% else %}
+        <p style="padding: 35px; text-align: center; display: flex; width: 200px; margin-right: 20px;">No photo available</p>
+        {% endif %}
+        <span class="about" style="width: 100%; box-sizing: border-box; display: flex; align-items: center; margin-bottom: 12px; line-height: 24px;">
+            <span class="price_label" style="margin-top: 8px; margin-right: 8px; font-size: 15px; color: #9B9B9B;">Price</span>
+            <span class="price" style="margin-top: 8px; font-size: 18px; font-weight: 600; color: #171717;">{{ offer.price }} PLN</span>
+        </span>
+        <div>
+            <span class="about" style="width: 100%; box-sizing: border-box; display: flex; align-items: flex-start; flex-direction: column; justify-content: flex-start; margin-bottom: 12px; line-height: 24px;">
+                <span class="description" style="color: black; text-align: left; margin: 0 ">{{ offer.product.description }} </span>
+            </span>
+        </div>
+    </div>
+        </a>
+    {% endfor %}
+</div>
+{% endblock body %}
