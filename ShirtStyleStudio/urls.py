@@ -20,7 +20,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 from user.views import Register, CustomPasswordResetView, CustomPasswordResetConfirmView, CustomPasswordResetDoneView, CustomPasswordResetCompleteView, profile, EditProfile, home
-from shop.views import OfferReadView, OfferCreateView, OfferDeleteView, OfferUpdateView, ProductCreateView, AllProductReadView, ProductReadView, ProductUpdateView, ProductDeleteView
+from shop.views import AllOffersReadView, OfferCreateView, OfferDeleteView, OfferUpdateView, ProductCreateView, AllProductReadView, ProductReadView, ProductUpdateView, ProductDeleteView, OfferDetailReadView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -34,7 +34,8 @@ urlpatterns = [
     path('password_reset/done/', CustomPasswordResetDoneView.as_view(), name='password_reset_done'),
     path('profile/', profile, name='profile'),
     path('profile/edit/', EditProfile.as_view(), name='edit_profile'),
-    path('offers/', OfferReadView.as_view(), name='offers'),
+    path('offer/<int:offer_id>/', OfferDetailReadView.as_view(), name='offer_details'),
+    path('offers/', AllOffersReadView.as_view(), name='offers'),
     path('create_offer', OfferCreateView.as_view(), name='offer_create'),
     path('delete_offer/<int:pk>/', OfferDeleteView.as_view(), name='offer_delete'),
     path('update_offer/<int:offer_id>/', OfferUpdateView.as_view(), name='offer_update'),

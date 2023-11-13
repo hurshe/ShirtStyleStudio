@@ -2,6 +2,12 @@ from .models import Offer, Product
 from django import forms
 
 
+class OfferForm(forms.ModelForm):
+    class Meta:
+        model = Offer
+        fields = '__all__'
+
+
 class OfferUpdateForm(forms.ModelForm):
 
     class Meta:
