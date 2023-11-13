@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<style>
+.button{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+<div class="container">
+    <div class="product-image" style="margin-top: 40px; display: flex; align-items: flex-start;">
+        <div style="flex: 1;">
+            {% if offer.product.prod_img %}
+                <img src="{{ offer.product.prod_img.url }}" alt="Product photo" style="max-width: 600px; max-height: 600px;">
+            {% else %}
+                <p>No photo available</p>
+            {% endif %}
+        </div>
+
+        <div style="position: relative; text-align: right; margin-left: 60px; ">
+            <h1 style="position: relative; right: 120px">{{ offer.product.title }}</h1>
+            <p style="position: relative; right: 200px"><b>article: {{ offer.product.article }}</b></p>
+            <h3 style="position: relative; right: 205px; "> {{ offer.price }} PLN</h3>
+            <div style="position: relative; right: 190px; top:20px">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                <option value="medium">S (44-46)</option>
+                <option value="large">M (48-50)</option>
+                <option value="large">L (52)</option>
+                <option value="large">XL (54-56)</option>
+                <option value="large">XXL (58-60)</option>
+                </select>
+            </div>
+
+                <button class="button" style="background-color: green; position: relative; top: 45px; right: 30px; width: 200px"><strong>Buy</strong></button>
+                <button class="button" style="background-color: pink; position: relative; top: 45px; right: 30px"><strong>Like</strong></button>
+        </div>
+    </div>
+    <br>
+    <div class="product-description" style="margin-top: 40px;">
+        <h3>Description</h3>
+        <p>{{ offer.product.description }}</p>
+        <br>
+        <p>Compound:</p>
+        <p>Length:</p>
+        <p>Neckline:</p>
+        <p>Sleeve:</p>
+        <p>Available sizes:</p>
+        <p>Style:</p>
+        <p>Season:</p>
+        <p>Sex:</p>
+        <p>Type:</p>
+        <p>Print:</p>
+        <p>Printing area:</p>
+        <p>Brand:</p>
+        <p>Producing country:</p>
+        <p>Rules of care:</p>
+    </div>
+</div>
+{% endblock body %}

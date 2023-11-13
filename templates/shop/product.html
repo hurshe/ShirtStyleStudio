@@ -3,27 +3,27 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-<div class="grid-container" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-row-gap: 10px; gap: 30px;">
-    <a style="text-decoration: none;" href="#">
-        <div class="grid-item" style="background-color: #f0f0f0; padding: 20px; text-align: center; margin: 10px 0;">
-            {% if product.prod_img %}
-            <img class="rounded float-start" style="display: flex; max-width: 200px; margin-right: 10px;" src="{{ product.prod_img.url }}" alt="Product photo">
-            {% else %}
-            <p style="padding: 35px; text-align: center; display: flex; width: 200px; margin-right: 20px;">No photo available</p>
-            {% endif %}
-            <span class="about" style="width: 100%; box-sizing: border-box; display: flex; align-items: flex-start; flex-direction: column; justify-content: flex-start; margin-bottom: 12px; line-height: 24px;">
-                <span class="size_label" style="font-size: 15px; color: #9B9B9B;"><b>Title:</b> {{ product.title }} </span>
-                <span class="size_label" style="font-size: 15px; color: #9B9B9B;"><b>Size:</b> {{ product.size }} </span>
-                <span class="qty_label" style="font-size: 15px; color: #9B9B9B;"><b>Qty:</b> {{ product.qty }} </span>
-                <span class="description_label" style="font-size: 15px; color: #9B9B9B; text-align: left; margin: 0;"><b>Description:</b> {{ product.description }}</span>
-            </span>
-            <div>
-                <a href="{% url 'update_product' product_id=product.id %}"><button>Update</button></a>
-                <a href="{% url 'delete_product' product_id=product.id %}"><button>Delete</button></a>
-            </div>
-        </div>
+<div class="container">
+    <div class="product-image" style="margin-top: 10px;">
+        {% if product.prod_img %}
+            <img src="{{ product.prod_img.url }}" alt="Product photo" style="max-width: 300px; max-height: 300px;">
+        {% else %}
+            <p>No photo available</p>
+        {% endif %}
+    </div>
 
-    </a>
+    <div class="product-description" style="margin-top: 10px;">
+        <h3>Description</h3>
+        <p>{{ product.description }}</p>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div>
+                <h3>Price</h3>
+                <p>{{ offer.price }}</p>
+            </div>
+
+
+        </div>
+    </div>
 </div>
 {% endblock body %}
-
