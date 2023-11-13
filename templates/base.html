@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="path/to/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="path/to/slick/slick-theme.css">
+
+        <!-- Add your product_detail.html content here -->
+
+        <script type="text/javascript" src="path/to/slick/slick.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static '/base/base.css' %}">
+        <title>{% block title %}ShirtStyleStudio{% endblock title %}</title>
+    </head>
+    <body>
+        <div class="top-menu">
+            <div class="logo"><a  href="{% url 'home' %}"><img src="https://x-lines.ru/letters/i/technopixelbitmap/10187/80e1ff/30/1/kpwg1huwkp4815dfkp48k3djph.png" border="0" /></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Midlle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+            <div class="icons">
+                <span><a href=""><img style="vertical-align: middle; width: 50px; object-fit: cover; height:50px; border-radius: 50%; margin-left: 10px; margin-right: 10px;" class="rounded-circle"  src="static/image/cart.png"></a></span>
+            </div>
+        </div>
+        <div class="botton-menu">
+            <a class="category-button" href="{% url 'products' %}">Products</a>
+            <a class="category-button" href="{% url 'offers' %}">Offers</a>
+            <a class="category-button" href="#">Kids</a>
+            <a class="category-button" href="#">Accessories</a>
+        </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          {% block body %}
+          {% endblock body%}
+        </div>
+      </div>
+    </div>
+    <footer class="bg-light text-center text-lg-start" style="margin-top: 30px; position: fixed; bottom: 0;width: 100%;}">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #808080; color: white;">
+      © 2023 Copyright:
+      <a class="text-white" href="https://github.com/hurshe/ShirtStyleStudio">Hurshee</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    </body>
+</html>
